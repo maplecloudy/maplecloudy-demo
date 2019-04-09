@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.spark:spark-tags_2.11:2.3.0-maple-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-tags_2.11/2.3.0-maple-SNAPSHOT/spark-tags_2.11-2.3.0-maple-20181112.043348-2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-tags_2.11/2.3.0-maple-SNAPSHOT/spark-tags_2.11-2.3.0-maple-20181112.043348-2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-tags_2.11/2.3.0-maple-SNAPSHOT/spark-tags_2.11-2.3.0-maple-20181112.043348-2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.maplecloudy.platform:maplecloudy-platform-sdk:0.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/maplecloudy/platform/maplecloudy-platform-sdk/0.0.1-SNAPSHOT/maplecloudy-platform-sdk-0.0.1-20190408.063846-27.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/maplecloudy/platform/maplecloudy-platform-sdk/0.0.1-SNAPSHOT/maplecloudy-platform-sdk-0.0.1-20190408.063846-27-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/maplecloudy/platform/maplecloudy-platform-sdk/0.0.1-SNAPSHOT/maplecloudy-platform-sdk-0.0.1-20190408.063846-27-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

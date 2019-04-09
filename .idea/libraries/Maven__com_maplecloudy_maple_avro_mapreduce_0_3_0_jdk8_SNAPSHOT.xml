@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.maplecloudy.maple:avro-mapreduce:0.3.0-jdk8-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/maplecloudy/maple/avro-mapreduce/0.3.0-jdk8-SNAPSHOT/avro-mapreduce-0.3.0-jdk8-20190115.121833-63.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/maplecloudy/maple/avro-mapreduce/0.3.0-jdk8-SNAPSHOT/avro-mapreduce-0.3.0-jdk8-20190115.121833-63-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/maplecloudy/maple/avro-mapreduce/0.3.0-jdk8-SNAPSHOT/avro-mapreduce-0.3.0-jdk8-20190115.121833-63-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.spark:spark-yarn_2.11:2.3.0-maple-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-yarn_2.11/2.3.0-maple-SNAPSHOT/spark-yarn_2.11-2.3.0-maple-20181113.095525-3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-yarn_2.11/2.3.0-maple-SNAPSHOT/spark-yarn_2.11-2.3.0-maple-20181113.095525-3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-yarn_2.11/2.3.0-maple-SNAPSHOT/spark-yarn_2.11-2.3.0-maple-20181113.095525-3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
