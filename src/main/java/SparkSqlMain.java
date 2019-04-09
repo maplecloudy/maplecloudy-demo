@@ -26,7 +26,7 @@ public class SparkSqlMain implements MAppTool {
         String sql = (String) appPod.getConfigMap().get("sql");
         String tableName = (String) appPod.getConfigMap().get("table");
         String outPath = (String) appPod.getConfigMap().get("outPath");
-
+        System.out.println(" -------------- ");
         System.getProperties().setProperty("HADOOP_USER_NAME",useName);
         SparkConf scf = new SparkConf(true);
         scf.set("hadoop.security.group.mapping", FakeUnixGroupsMapping.class.getName());
