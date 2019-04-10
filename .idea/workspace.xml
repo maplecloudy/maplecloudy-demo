@@ -28,8 +28,18 @@
       <file leaf-file-name="SparkSqlMain.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SparkSqlMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+            <state relative-caret-position="285">
+              <caret line="31" column="83" lean-forward="false" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SparkConf.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.3.0-maple-SNAPSHOT/spark-core_2.11-2.3.0-maple-20181112.043516-2.jar!/org/apache/spark/SparkConf.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="185" column="0" lean-forward="true" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -386,7 +396,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16044000" />
+    <option name="totallyTimeSpent" value="16303000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="0" width="1920" height="1080" extended-state="6" />
@@ -460,14 +470,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="927">
-          <caret line="234" column="0" lean-forward="false" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/maplecloudy/platform/maplecloudy-platform-sdk/0.0.1-SNAPSHOT/maplecloudy-platform-sdk-0.0.1-20190409.124520-33.jar!/com/maplecloudy/app/utils/MAppUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2972">
@@ -879,10 +881,18 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/maplecloudy/platform/maplecloudy-platform-sdk/0.0.1-SNAPSHOT/maplecloudy-platform-sdk-0.0.1-20190408.063846-27.jar!/com/maplecloudy/app/utils/MAppUtils.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/maplecloudy/platform/maplecloudy-platform-sdk/0.0.1-SNAPSHOT/maplecloudy-platform-sdk-0.0.1-20190409.124520-33.jar!/com/maplecloudy/app/utils/MAppUtils.class" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.3.0-maple-SNAPSHOT/spark-core_2.11-2.3.0-maple-20181112.043516-2.jar!/org/apache/spark/SparkConf.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="185" column="0" lean-forward="true" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SparkSqlMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+        <state relative-caret-position="285">
+          <caret line="31" column="83" lean-forward="false" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
           <folding />
         </state>
       </provider>
