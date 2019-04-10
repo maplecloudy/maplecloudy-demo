@@ -28,74 +28,9 @@
       <file leaf-file-name="SparkSqlMain.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SparkSqlMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="31" column="83" lean-forward="false" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
+            <state relative-caret-position="313">
+              <caret line="33" column="44" lean-forward="true" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SparkConf.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.3.0-maple-SNAPSHOT/spark-core_2.11-2.3.0-maple-20181112.043516-2.jar!/org/apache/spark/SparkConf.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="185" column="0" lean-forward="true" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MAppUtils.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/maplecloudy/platform/maplecloudy-platform-sdk/0.0.1-SNAPSHOT/maplecloudy-platform-sdk-0.0.1-20190410.084145-36.jar!/com/maplecloudy/app/utils/MAppUtils.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="112" column="32" lean-forward="false" selection-start-line="112" selection-start-column="32" selection-end-line="112" selection-end-column="32" />
-              <folding>
-                <marker date="1554886425429" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1554886425429" expanded="false" signature="149:1246" ph="..." />
-                <marker date="1554886425429" expanded="true" signature="1532:1539" ph="{}" />
-                <marker date="1554886425429" expanded="true" signature="1607:1688" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="1753:1848" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="1987:2254" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="2312:4275" ph="{...}" />
-                <marker date="1554886425429" expanded="false" signature="3965:4062" ph="accept(key, value) → {" />
-                <marker date="1554886425429" expanded="false" signature="4237:4256" ph="}" />
-                <marker date="1554886425429" expanded="true" signature="4348:4903" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="4951:5893" ph="{...}" />
-                <marker date="1554886425429" expanded="false" signature="5682:5800" ph="accept(key, value) → { " />
-                <marker date="1554886425429" expanded="false" signature="5821:5853" ph=" }" />
-                <marker date="1554886425429" expanded="true" signature="5962:6144" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="6038:6136" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="6211:6391" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="6285:6383" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="6441:7389" ph="{...}" />
-                <marker date="1554886425429" expanded="false" signature="7178:7296" ph="accept(key, value) → { " />
-                <marker date="1554886425429" expanded="false" signature="7317:7349" ph=" }" />
-                <marker date="1554886425429" expanded="true" signature="7428:8866" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="8975:9454" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="9513:9968" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="10082:12083" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="12201:14199" ph="{...}" />
-                <marker date="1554886425429" expanded="false" signature="14261:14272" ph=" { " />
-                <marker date="1554886425429" expanded="false" signature="14326:14332" ph=" }" />
-                <marker date="1554886425429" expanded="true" signature="14385:16017" ph="{...}" />
-                <marker date="1554886425429" expanded="true" signature="16076:16218" ph="{...}" />
-                <marker date="1554886425429" expanded="false" signature="16256:16267" ph=" { " />
-                <marker date="1554886425429" expanded="false" signature="16299:16305" ph=" }" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SaveMode.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-sql_2.11/2.3.0-maple-SNAPSHOT/spark-sql_2.11-2.3.0-maple-SNAPSHOT.jar!/org/apache/spark/sql/SaveMode.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-              <folding>
-                <marker date="1543047838000" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1543047838000" expanded="true" signature="313:320" ph="{}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -108,16 +43,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GroupMappingServiceProvider.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-common/2.6.0-cdh5.15.0/hadoop-common-2.6.0-cdh5.15.0-sources.jar!/org/apache/hadoop/security/GroupMappingServiceProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -396,7 +321,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16303000" />
+    <option name="totallyTimeSpent" value="16323000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="0" width="1920" height="1080" extended-state="6" />
@@ -404,6 +329,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -411,8 +337,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26677316" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -470,14 +396,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/com/maplecloudy/platform/maplecloudy-platform-sdk/0.0.1-SNAPSHOT/maplecloudy-platform-sdk-0.0.1-20190409.124520-33.jar!/com/maplecloudy/app/utils/MAppUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2972">
-          <caret line="91" column="60" lean-forward="false" selection-start-line="91" selection-start-column="60" selection-end-line="91" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/maplecloudy/platform/maplecloudy-platform-sdk/0.0.1-SNAPSHOT/maplecloudy-platform-sdk-0.0.1-20190409.124520-33.jar!/com/maplecloudy/app/utils/MAppUtils.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/maplecloudy/platform/maplecloudy-platform-sdk/0.0.1-SNAPSHOT/maplecloudy-platform-sdk-0.0.1-20190410.084145-36.jar!/com/maplecloudy/app/utils/MAppUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -891,8 +810,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SparkSqlMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="31" column="83" lean-forward="false" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
+        <state relative-caret-position="313">
+          <caret line="33" column="44" lean-forward="true" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
           <folding />
         </state>
       </provider>
