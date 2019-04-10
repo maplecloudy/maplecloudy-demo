@@ -32,6 +32,7 @@ public class SparkSqlMain implements MAppTool {
         SparkConf scf = new SparkConf(true).setAppName("maplecloudy-spark-hive-app" + MAppUtils.getMAppId());
 //        scf.set("hadoop.security.group.mapping", FakeUnixGroupsMapping.class.getName());
         MAppUtils.appendHadoopConf2Spark(scf);
+        MAppUtils.loadSparkConf();
         System.out.println(new Gson().toJson(scf.getAll()));
         SparkSession spark = SparkSession.builder().config(scf)
 //                .config("hive.metastore.uris", "thrift://dn5.ali.bjol.bigdata.udsp.com:9083")
