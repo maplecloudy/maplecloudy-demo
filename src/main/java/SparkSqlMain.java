@@ -28,15 +28,11 @@ public class SparkSqlMain implements MAppTool {
         String tableName = (String) appPod.getConfigMap().get("table");
         String outPath = (String) appPod.getConfigMap().get("outPath");
         System.out.println(appPod.getConfigMap());
-//        System.getProperties().setProperty("HADOOP_USER_NAME",useName);
-        SparkConf scf = new SparkConf(true).setAppName("maplecloudy-spark-hive-app" + MAppUtils.getMAppId());
-//        scf.set("hadoop.security.group.mapping", FakeUnixGroupsMapping.class.getName());
-        MAppUtils.appendHadoopConf2Spark(scf);
         MAppUtils.loadSparkConf();
+        SparkConf scf = new SparkConf(true).setAppName("maplecloudy-spark-hive-app" + MAppUtils.getMAppId());
+        MAppUtils.appendHadoopConf2Spark(scf);
         System.out.println(new Gson().toJson(scf.getAll()));
         SparkSession spark = SparkSession.builder().config(scf)
-//                .config("hive.metastore.uris", "thrift://dn5.ali.bjol.bigdata.udsp.com:9083")
-//                .config("hive.exec.local.scratchdir", "/tmp/maple")
                 .enableHiveSupport().getOrCreate();
         Dataset<Row> table = spark.sql(sql);
         table.write().format("com.databricks.spark.avro").mode(SaveMode.Overwrite)
