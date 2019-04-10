@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="787f1d6b-2c54-46ea-9d2d-925d319e6b89" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/SparkSqlMain.java" afterPath="$PROJECT_DIR$/src/main/java/SparkSqlMain.java" />
-    </list>
+    <list default="true" id="787f1d6b-2c54-46ea-9d2d-925d319e6b89" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -363,12 +361,12 @@
       <workItem from="1554724386981" duration="743000" />
       <workItem from="1554776574638" duration="4468000" />
       <workItem from="1554833336828" duration="6000" />
-      <workItem from="1554862561862" duration="1827000" />
+      <workItem from="1554862561862" duration="1893000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15272000" />
+    <option name="totallyTimeSpent" value="15338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1709" y="105" width="1280" height="727" extended-state="0" />
