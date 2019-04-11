@@ -1,6 +1,9 @@
 package com.maplecloudy.mapps;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.spark.SparkConf;
+import org.apache.spark.SparkContext;
+import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SaveMode;
@@ -47,8 +50,12 @@ public class SparkSqlMain implements MAppTool {
     System.out.println(new Gson().toJson(scf.getAll()));
     SparkSession spark = SparkSession.builder().config(scf).enableHiveSupport()
         .getOrCreate();
+    SparkContext sparkContext = spark.sparkContext();
+    JavaSparkContext sc = JavaSparkContext.fromSparkContext(sparkContext);
+    sc.hadoopConfiguration().addResource(MAppUtils.getHadoopConf());
+    sc.hadoopConfiguration().addResource(MAppUtils.getHiveConf());
     Dataset<Row> table = spark.sql(sql);
-    table.write().format("com.databricks.spark.avro").mode(SaveMode.Overwrite)
+    table.write().format("parquet").mode(SaveMode.Overwrite)
         .option("path", outPath).saveAsTable(tableName);
     
     return 0;
