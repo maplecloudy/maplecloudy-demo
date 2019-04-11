@@ -27,14 +27,15 @@ public class SparkSqlMain implements MAppTool {
     String tableName = (String) appPod.getConfigMap().get("table");
     String outPath = (String) appPod.getConfigMap().get("outPath");
     System.out.println(appPod.getConfigMap());
+    System.setProperty("HADOOP_USER_NAME","maplecloudy");
     MAppUtils.loadSparkConf();
     SparkConf scf = new SparkConf(true)
         .setAppName("maplecloudy-spark-hive-app-" + MAppUtils.getMAppId());
     MAppUtils.appendHadoopConf2Spark(scf);
     scf.set("hadoop.security.group.mapping",
         FakeUnixGroupsMapping.class.getName());
-//    scf.set("spark.hadoop.hadoop.security.group.mapping",
-//        FakeUnixGroupsMapping.class.getName());
+    scf.set("spark.hadoop.hadoop.security.group.mapping",
+        FakeUnixGroupsMapping.class.getName());
     MAppUtils.appendHiveConf2Spark(scf);
     System.out.println(scf.get("hive.metastore.warehouse.dir", "null-d"));
     System.out.println(new Gson().toJson(scf.getAll()));
