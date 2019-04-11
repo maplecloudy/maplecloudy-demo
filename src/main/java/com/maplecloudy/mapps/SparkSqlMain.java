@@ -10,6 +10,7 @@ import org.apache.spark.sql.SaveMode;
 import org.apache.spark.sql.SparkSession;
 
 import com.google.gson.Gson;
+import com.maplecloudy.api.AppConstant;
 import com.maplecloudy.api.app.AppPod;
 import com.maplecloudy.app.MAppRunner;
 import com.maplecloudy.app.MAppTool;
@@ -26,10 +27,16 @@ public class SparkSqlMain implements MAppTool {
   
   public int run(String[] args) throws Exception {
     AppPod appPod = MAppUtils.getAppPod();
-    String sql = (String) appPod.getConfigMap().get("sql");
-    String tableName = (String) appPod.getConfigMap().get("table");
-    String outPath = (String) appPod.getConfigMap().get("outPath");
-    System.out.println(appPod.getConfigMap());
+//    String sql = (String) appPod.getConfigMap().get("sql");
+//    String tableName = (String) appPod.getConfigMap().get("table");
+//    String outPath = (String) appPod.getConfigMap().get("outPath");
+    
+    String sql = MAppUtils.getValue(appPod, "sql");
+    String database = MAppUtils.getValue(appPod, "database");
+    String outPath = MAppUtils.getValue(appPod, "outPath");
+    String mAppId = System.getenv(AppConstant.MAPP_ID);
+    String temporaryTableName = "tmp_" + mAppId;
+    
     MAppUtils.loadSparkConf();
     System.setProperty("spark.hadoop.hadoop.security.group.mapping",
         FakeUnixGroupsMapping.class.getName());
@@ -54,9 +61,10 @@ public class SparkSqlMain implements MAppTool {
     JavaSparkContext sc = JavaSparkContext.fromSparkContext(sparkContext);
     sc.hadoopConfiguration().addResource(MAppUtils.getHadoopConf());
     sc.hadoopConfiguration().addResource(MAppUtils.getHiveConf());
+    spark.sql("use " + database);
     Dataset<Row> table = spark.sql(sql);
     table.write().format("parquet").mode(SaveMode.Overwrite)
-        .option("path", outPath).saveAsTable(tableName);
+        .option("path", outPath + "/" + mAppId).saveAsTable(temporaryTableName);
     
     return 0;
   }
