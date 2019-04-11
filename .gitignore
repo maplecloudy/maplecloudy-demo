@@ -1,0 +1,15 @@
+.DS_Store
+**.classpath
+**.project
+**.settings/
+**target/
+**logs
+**.vscode
+**/.checkstyle
+.idea/**
+**.iml
+**/.factorypath
+yarn.lock
+maplecloudy-platform-user/src/main/java/com/maplecloudy/platform/utils/FsInput.java
+node_modules/**
+yarn.lock

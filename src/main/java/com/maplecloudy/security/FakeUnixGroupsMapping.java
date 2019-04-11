@@ -1,4 +1,4 @@
-package config;
+package com.maplecloudy.security;
 
 import org.apache.hadoop.classification.InterfaceAudience;
 import org.apache.hadoop.classification.InterfaceStability;
