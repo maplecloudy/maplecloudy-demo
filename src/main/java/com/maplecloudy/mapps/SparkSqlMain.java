@@ -27,16 +27,22 @@ public class SparkSqlMain implements MAppTool {
     String tableName = (String) appPod.getConfigMap().get("table");
     String outPath = (String) appPod.getConfigMap().get("outPath");
     System.out.println(appPod.getConfigMap());
-    System.setProperty("HADOOP_USER_NAME","maplecloudy");
     MAppUtils.loadSparkConf();
+    System.setProperty("spark.hadoop.hadoop.security.group.mapping",
+        FakeUnixGroupsMapping.class.getName());
+    System.out.println("**********spark conf 参数 pre*****************");
+    System.out.println(new Gson().toJson(System.getProperties()));
     SparkConf scf = new SparkConf(true)
         .setAppName("maplecloudy-spark-hive-app-" + MAppUtils.getMAppId());
     MAppUtils.appendHadoopConf2Spark(scf);
-    scf.set("hadoop.security.group.mapping",
-        FakeUnixGroupsMapping.class.getName());
+    System.out.println("**********spark conf 参数 hadoop*****************");
+    System.out.println(new Gson().toJson(System.getProperties()));
+    MAppUtils.appendHiveConf2Spark(scf);
+    System.out.println("**********spark conf 参数 hive*****************");
+    System.out.println(new Gson().toJson(System.getProperties()));
     scf.set("spark.hadoop.hadoop.security.group.mapping",
         FakeUnixGroupsMapping.class.getName());
-    MAppUtils.appendHiveConf2Spark(scf);
+    System.out.println("====================================");
     System.out.println(scf.get("hive.metastore.warehouse.dir", "null-d"));
     System.out.println(new Gson().toJson(scf.getAll()));
     SparkSession spark = SparkSession.builder().config(scf).enableHiveSupport()
