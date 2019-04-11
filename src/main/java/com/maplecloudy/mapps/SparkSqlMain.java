@@ -36,6 +36,12 @@ public class SparkSqlMain implements MAppTool {
     String outPath = MAppUtils.getValue(appPod, "outPath");
     String mAppId = System.getenv(AppConstant.MAPP_ID);
     String temporaryTableName = "tmp_" + mAppId;
+    System.out.println(new Gson().toJson(appPod));
+    System.out.println(sql);
+    System.out.println(database);
+    System.out.println(outPath);
+    System.out.println(mAppId);
+    System.out.println(temporaryTableName);
     
     MAppUtils.loadSparkConf();
     System.setProperty("spark.hadoop.hadoop.security.group.mapping",
