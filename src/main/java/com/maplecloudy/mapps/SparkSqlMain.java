@@ -1,6 +1,5 @@
 package com.maplecloudy.mapps;
 
-import org.apache.hadoop.conf.Configuration;
 import org.apache.spark.SparkConf;
 import org.apache.spark.SparkContext;
 import org.apache.spark.api.java.JavaSparkContext;
