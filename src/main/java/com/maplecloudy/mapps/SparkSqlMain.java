@@ -1,5 +1,8 @@
 package com.maplecloudy.mapps;
 
+import java.util.HashMap;
+
+import org.apache.arrow.flatbuf.Map;
 import org.apache.spark.SparkConf;
 import org.apache.spark.SparkContext;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -17,6 +20,8 @@ import com.maplecloudy.app.annotation.Action;
 import com.maplecloudy.app.utils.MAppUtils;
 import com.maplecloudy.security.FakeUnixGroupsMapping;
 
+import jersey.repackaged.com.google.common.collect.Maps;
+
 /**
  * @author fgzhong
  * @since 2019/3/31
@@ -30,9 +35,9 @@ public class SparkSqlMain implements MAppTool {
 //    String tableName = (String) appPod.getConfigMap().get("table");
 //    String outPath = (String) appPod.getConfigMap().get("outPath");
     
-    String sql = MAppUtils.getValue(appPod, "sql");
-    String database = MAppUtils.getValue(appPod, "database");
-    String outPath = MAppUtils.getValue(appPod, "outPath");
+    String sql = MAppUtils.getParameter("sql","");
+    String database = MAppUtils.getParameter("database","default");
+    String outPath = MAppUtils.getParameter("outPath","");
     String mAppId = System.getenv(AppConstant.MAPP_ID);
     String temporaryTableName = "tmp_" + mAppId;
     System.out.println(new Gson().toJson(appPod));
@@ -49,7 +54,7 @@ public class SparkSqlMain implements MAppTool {
     System.out.println(new Gson().toJson(System.getProperties()));
     SparkConf scf = new SparkConf(true)
         .setAppName("maplecloudy-spark-hive-app-" + MAppUtils.getMAppId());
-    MAppUtils.appendHadoopConf2Spark(scf);
+//    MAppUtils.appendHadoopConf2Spark(scf);
     System.out.println("**********spark conf 参数 hadoop*****************");
     System.out.println(new Gson().toJson(System.getProperties()));
     MAppUtils.appendHiveConf2Spark(scf);
@@ -64,12 +69,16 @@ public class SparkSqlMain implements MAppTool {
         .getOrCreate();
     SparkContext sparkContext = spark.sparkContext();
     JavaSparkContext sc = JavaSparkContext.fromSparkContext(sparkContext);
-    sc.hadoopConfiguration().addResource(MAppUtils.getHadoopConf());
+//    sc.hadoopConfiguration().addResource(MAppUtils.getHadoopConf());
     sc.hadoopConfiguration().addResource(MAppUtils.getHiveConf());
     spark.sql("use " + database);
     Dataset<Row> table = spark.sql(sql);
     table.write().format("parquet").mode(SaveMode.Overwrite)
         .option("path", outPath + "/" + mAppId).saveAsTable(temporaryTableName);
+    long rowNum = table.count();
+    HashMap<String,Object> output = Maps.newHashMap();
+    output.put("rowNum", rowNum);
+    MAppUtils.savePipelineOutput(output);
     
     return 0;
   }
