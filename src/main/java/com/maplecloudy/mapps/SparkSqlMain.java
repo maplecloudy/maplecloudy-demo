@@ -35,10 +35,12 @@ public class SparkSqlMain implements MAppTool {
 //    String tableName = (String) appPod.getConfigMap().get("table");
 //    String outPath = (String) appPod.getConfigMap().get("outPath");
     
-    String sql = MAppUtils.getParameter("sql","");
-    String database = MAppUtils.getParameter("database","default");
-    String outPath = MAppUtils.getParameter("outPath","");
+    String sql = MAppUtils.getParameter("sql", "");
+    String database = MAppUtils.getParameter("database", "default");
+    String outPath = MAppUtils.getParameter("outPath", "");
     String mAppId = System.getenv(AppConstant.MAPP_ID);
+    String tmpDB = MAppUtils.getParameter(AppConstant.TMP_MAPP_DB,
+        AppConstant.TMP_MAPP_DB_NAME);
     String temporaryTableName = "tmp_" + mAppId;
     System.out.println(new Gson().toJson(appPod));
     System.out.println(sql);
@@ -73,6 +75,7 @@ public class SparkSqlMain implements MAppTool {
     sc.hadoopConfiguration().addResource(MAppUtils.getHiveConf());
     spark.sql("use " + database);
     Dataset<Row> table = spark.sql(sql);
+    spark.sql("use " + tmpDB);
     table.write().format("parquet").mode(SaveMode.Overwrite)
         .option("path", outPath + "/" + mAppId).saveAsTable(temporaryTableName);
     long rowNum = table.count();
