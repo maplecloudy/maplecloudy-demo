@@ -37,10 +37,12 @@ public class SparkSqlMain implements MAppTool {
 
   public int run(String[] args) throws Exception {
     
-    String sql = MAppUtils.getParameter("sql","");
-    String database = MAppUtils.getParameter("database","default");
-    String outPath = MAppUtils.getParameter("outPath","");
+    String sql = MAppUtils.getParameter("sql", "");
+    String database = MAppUtils.getParameter("database", "default");
+    String outPath = MAppUtils.getParameter("outPath", "");
     String mAppId = System.getenv(AppConstant.MAPP_ID);
+    String tmpDB = MAppUtils.getParameter(AppConstant.TMP_MAPP_DB,
+        AppConstant.TMP_MAPP_DB_NAME);
     String temporaryTableName = "tmp_" + mAppId;
     Configuration hiveConf = MAppUtils.getHiveConf();
     FileSystem fs = FileSystem.get(hiveConf);
@@ -75,6 +77,7 @@ public class SparkSqlMain implements MAppTool {
 //    sc.hadoopConfiguration().addResource(MAppUtils.getHiveConf());
     spark.sql("use " + database);
     Dataset<Row> table = spark.sql(sql);
+    spark.sql("use " + tmpDB);
     table.write().format("parquet").mode(SaveMode.Overwrite)
         .option("path", outPath + "/" + mAppId).saveAsTable(temporaryTableName);
     long rowNum = table.count();
