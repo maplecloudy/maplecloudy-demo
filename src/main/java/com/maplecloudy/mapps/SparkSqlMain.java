@@ -34,7 +34,7 @@ public class SparkSqlMain implements MAppTool {
    * 
    */
   private static final long serialVersionUID = 1L;
-
+  
   public int run(String[] args) throws Exception {
     
     String sql = MAppUtils.getParameter("sql", "");
@@ -46,8 +46,8 @@ public class SparkSqlMain implements MAppTool {
     String temporaryTableName = "tmp_" + mAppId;
     Configuration hiveConf = MAppUtils.getHiveConf();
     FileSystem fs = FileSystem.get(hiveConf);
-    //取Path的绝对路径
-    outPath = new Path(fs.getHomeDirectory(),outPath).toString();
+    // 取Path的绝对路径
+    outPath = new Path(fs.getHomeDirectory(), outPath).toString();
     
     System.out.println(sql);
     System.out.println(database);
@@ -64,9 +64,9 @@ public class SparkSqlMain implements MAppTool {
         + File.separator + System.getenv("USER"));
     hiveConf.set("hive.server2.thrift.client.user", System.getenv("USER"));
     hiveConf.set("hive.server2.thrift.client.password", "");
-    hiveConf.set("hadoop.security.group.mapping", FakeUnixGroupsMapping.class.getName());
+    hiveConf.set("hadoop.security.group.mapping",
+        FakeUnixGroupsMapping.class.getName());
     MAppUtils.appendHiveConf2Spark(scf);
-    
     
     System.out.println(new Gson().toJson(scf.getAll()));
     SparkSession spark = SparkSession.builder().config(scf).enableHiveSupport()
@@ -78,7 +78,7 @@ public class SparkSqlMain implements MAppTool {
     spark.sql("use " + database);
     Dataset<Row> table = spark.sql(sql);
     spark.sql("use " + tmpDB);
-    table.write().format("parquet").mode(SaveMode.Overwrite)
+    table.coalesce(1).write().format("parquet").mode(SaveMode.Overwrite)
         .option("path", outPath + "/" + mAppId).saveAsTable(temporaryTableName);
     long rowNum = table.count();
     HashMap<String,Object> output = Maps.newHashMap();
