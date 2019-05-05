@@ -1,6 +1,7 @@
 package com.maplecloudy.mapps;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.HashMap;
 
 import org.apache.hadoop.conf.Configuration;
@@ -8,6 +9,7 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.spark.SparkConf;
 import org.apache.spark.SparkContext;
+import org.apache.spark.deploy.SparkHadoopUtil;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SaveMode;
@@ -72,6 +74,9 @@ public class SparkSqlMain implements MAppTool {
     SparkSession spark = SparkSession.builder().config(scf).enableHiveSupport()
         .getOrCreate();
     SparkContext sparkContext = spark.sparkContext();
+    MAppUtils.saveSparkContext(sparkContext);
+    Configuration conf = SparkHadoopUtil.get().conf();
+    Configuration.dumpConfiguration(conf, new PrintWriter(System.out));
 //    JavaSparkContext sc = JavaSparkContext.fromSparkContext(sparkContext);
 //    sc.hadoopConfiguration().addResource(MAppUtils.getHadoopConf());
 //    sc.hadoopConfiguration().addResource(MAppUtils.getHiveConf());
