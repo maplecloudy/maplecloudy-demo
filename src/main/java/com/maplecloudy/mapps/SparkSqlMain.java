@@ -40,6 +40,7 @@ public class SparkSqlMain implements MAppTool {
     String sql = MAppUtils.getParameter("sql", "");
     String database = MAppUtils.getParameter("database", "default");
     String outPath = MAppUtils.getParameter("outPath", "");
+    String resultNum = MAppUtils.getParameter("resultNum", "1");
     String mAppId = System.getenv(AppConstant.MAPP_ID);
     String tmpDB = MAppUtils.getParameter(AppConstant.TMP_MAPP_DB,
         AppConstant.TMP_MAPP_DB_NAME);
@@ -78,8 +79,9 @@ public class SparkSqlMain implements MAppTool {
     spark.sql("use " + database);
     Dataset<Row> table = spark.sql(sql);
     spark.sql("use " + tmpDB);
-    table.coalesce(1).write().format("parquet").mode(SaveMode.Overwrite)
-        .option("path", outPath + "/" + mAppId).saveAsTable(temporaryTableName);
+    table.coalesce(Integer.valueOf(resultNum)).write().format("parquet")
+        .mode(SaveMode.Overwrite).option("path", outPath + "/" + mAppId)
+        .saveAsTable(temporaryTableName);
     long rowNum = table.count();
     HashMap<String,Object> output = Maps.newHashMap();
     output.put("rowNum", rowNum);
