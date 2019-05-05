@@ -8,6 +8,7 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.spark.SparkConf;
 import org.apache.spark.SparkContext;
+import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SaveMode;
@@ -73,9 +74,9 @@ public class SparkSqlMain implements MAppTool {
     SparkSession spark = SparkSession.builder().config(scf).enableHiveSupport()
         .getOrCreate();
     SparkContext sparkContext = spark.sparkContext();
-//    JavaSparkContext sc = JavaSparkContext.fromSparkContext(sparkContext);
-//    sc.hadoopConfiguration().addResource(MAppUtils.getHadoopConf());
-//    sc.hadoopConfiguration().addResource(MAppUtils.getHiveConf());
+    JavaSparkContext sc = JavaSparkContext.fromSparkContext(sparkContext);
+    sc.hadoopConfiguration().addResource(MAppUtils.getHadoopConf());
+    sc.hadoopConfiguration().addResource(MAppUtils.getHiveConf());
     spark.sql("use " + database);
     Dataset<Row> table = spark.sql(sql);
     spark.sql("use " + tmpDB);
