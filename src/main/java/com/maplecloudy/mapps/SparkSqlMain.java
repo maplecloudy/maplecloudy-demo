@@ -85,7 +85,6 @@ public class SparkSqlMain implements MAppTool {
     JavaSparkContext sc = JavaSparkContext.fromSparkContext(sparkContext);
     sc.hadoopConfiguration().addResource(MAppUtils.getHadoopConf());
     sc.hadoopConfiguration().addResource(MAppUtils.getHiveConf());
-    System.out.println(new Gson().toJson(scf.getAll()));
     spark.sql("use " + database);
     Dataset<Row> table = spark.sql(sql);
     spark.sql("use " + tmpDB);
