@@ -1,4 +1,4 @@
-package com.maplecloudy.mapps;
+package com.maplecloudy.mapps.branch;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +25,7 @@ import com.maplecloudy.app.utils.MAppUtils;
 import scala.Tuple2;
 
 @Action
-public class SparkPi implements MAppTool {
+public class BranchTwo implements MAppTool {
   
   /**
    * 
@@ -33,39 +33,38 @@ public class SparkPi implements MAppTool {
   private static final long serialVersionUID = 1L;
   
   public static void main(String[] args) throws Exception {
-    System.exit(MAppRunner.run(new SparkPi(), args));
+    System.exit(MAppRunner.run(new BranchTwo(), args));
   }
   
   @Override
   public int run(String[] args) throws Exception {
-    // 切割三次
-    int slices = 3;
+    // 参数个数检查  如果输入一个则转换成int 否则切割二次
+    int slices = (args.length == 1) ? Integer.parseInt(args[0]) : 2;
     int n = 100000 * slices;
     List<Integer> l = new ArrayList<Integer>(n);
     for (int i = 0; i < n; i++) {
       l.add(i);
     }
+    System.out.println("******************开始加载用户设置的程序参数******************************");
+    HashMap<String,Object> parameter = MAppUtils.getAppPod().getParameter();
+    System.out.println("全部输入参数：" + new Gson().toJson(parameter));
     
-    System.out
-        .println("******************开始加载spark参数，使用用户设置的参数进行覆盖**************");
+    System.out.println("******************开始加载spark参数，使用用户设置的参数进行覆盖**************");
     MAppUtils.loadSparkConf();
     SparkConf sparkConf = new SparkConf(true).setAppName("JavaSparkPi");
     MAppUtils.appendHiveConf2Spark(sparkConf);
-    System.out.println(
-        "******************打印spark所有参数内容*********************************");
+    System.out.println("******************打印spark所有参数内容*********************************");
     for (Tuple2<String,String> tp : sparkConf.getAll()) {
       System.out.println(tp._1 + ":" + tp._2);
     }
-    System.out.println(
-        "******************打印所有系统环境变量参数*********************************");
+    System.out.println("******************打印所有系统环境变量参数*********************************");
     Map<String,String> getenv = System.getenv();
     for (Map.Entry<String,String> env : getenv.entrySet()) {
       System.out.println(
           "System env: key=" + env.getKey() + ", val=" + env.getValue());
     }
     
-    System.out.println(
-        "******************获得用户在平台设置的所有参数信息*********************************");
+    System.out.println("******************获得*********************************");
     AppPod appPod = MAppUtils.getAppPod();
     System.out.println("spark pi输出apppod信息");
     if (appPod != null) {
@@ -74,20 +73,14 @@ public class SparkPi implements MAppTool {
     } else {
       System.out.println("appPod is null");
     }
-    System.out.println(
-        "******************开始加载用户在平台上设置的参数之Parameters******************************");
-    HashMap<String,Object> parameter = MAppUtils.getAppPod().getParameter();
-    System.out.println("全部输入参数：" + new Gson().toJson(parameter));
-    
     JavaSparkContext jsc = new JavaSparkContext(sparkConf);
-    Configuration conf = jsc.hadoopConfiguration();
     
-    System.out.println(
-        "******************开始输出所有Hadooop配置参数******************************");
+    Configuration conf = jsc.hadoopConfiguration();
     System.out.println("conf 长度:" + conf.size());
     conf.forEach(s -> {
       System.out.println("hadoop conf:" + s.getKey() + s.getValue());
     });
+    System.out.println("hadoop conf key:");
     MAppUtils.saveSparkContext(jsc);
     JavaRDD<Integer> dataSet = jsc.parallelize(l, slices);
     int count = dataSet.map(new Function<Integer,Integer>() {
@@ -106,8 +99,10 @@ public class SparkPi implements MAppTool {
     });
     System.out.println("Pi is roughly " + 4.0 * count / n);
     jsc.stop();
-    HashMap<String,Double> newHashMap = Maps.newHashMap();
-    newHashMap.put("piResult", 4.0 * count / n);
+//    Thread.sleep(1000 * 60);
+    MAppUtils.savePipelineOutput("pi is roughly " + 4.0 * count / n);
+    HashMap<String,String> newHashMap = Maps.newHashMap();
+    newHashMap.put("selector", "branch2");
     MAppUtils.savePipelineOutput(newHashMap);
     return 0;
   }

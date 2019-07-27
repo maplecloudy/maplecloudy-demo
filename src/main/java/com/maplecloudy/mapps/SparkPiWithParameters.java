@@ -25,7 +25,7 @@ import com.maplecloudy.app.utils.MAppUtils;
 import scala.Tuple2;
 
 @Action
-public class SparkPi implements MAppTool {
+public class SparkPiWithParameters implements MAppTool {
   
   /**
    * 
@@ -33,14 +33,18 @@ public class SparkPi implements MAppTool {
   private static final long serialVersionUID = 1L;
   
   public static void main(String[] args) throws Exception {
-    System.exit(MAppRunner.run(new SparkPi(), args));
+    System.exit(MAppRunner.run(new SparkPiWithParameters(), args));
   }
   
   @Override
   public int run(String[] args) throws Exception {
-    // 切割三次
-    int slices = 3;
-    int n = 100000 * slices;
+    // 参数检查  如果输入slices 否则切割二次
+    System.out
+        .println("输入的slices参数为（默认是2）：" + MAppUtils.getParameter("slices", "2"));
+    System.out.println(
+        "输入的times参数为（默认是100000）：" + MAppUtils.getParameter("times", "100000"));
+    int slices = Integer.valueOf(MAppUtils.getParameter("slices", "2"));
+    int n = Integer.valueOf(MAppUtils.getParameter("times", "100000")) * slices;
     List<Integer> l = new ArrayList<Integer>(n);
     for (int i = 0; i < n; i++) {
       l.add(i);
@@ -88,6 +92,7 @@ public class SparkPi implements MAppTool {
     conf.forEach(s -> {
       System.out.println("hadoop conf:" + s.getKey() + s.getValue());
     });
+    System.out.println("hadoop conf key:");
     MAppUtils.saveSparkContext(jsc);
     JavaRDD<Integer> dataSet = jsc.parallelize(l, slices);
     int count = dataSet.map(new Function<Integer,Integer>() {
@@ -106,8 +111,10 @@ public class SparkPi implements MAppTool {
     });
     System.out.println("Pi is roughly " + 4.0 * count / n);
     jsc.stop();
-    HashMap<String,Double> newHashMap = Maps.newHashMap();
-    newHashMap.put("piResult", 4.0 * count / n);
+//    Thread.sleep(1000 * 60);
+    MAppUtils.savePipelineOutput("pi is roughly " + 4.0 * count / n);
+    HashMap<String,String> newHashMap = Maps.newHashMap();
+    newHashMap.put("selector", "branch2");
     MAppUtils.savePipelineOutput(newHashMap);
     return 0;
   }
