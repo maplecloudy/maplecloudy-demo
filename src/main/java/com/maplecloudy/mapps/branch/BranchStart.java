@@ -1,6 +1,7 @@
 package com.maplecloudy.mapps.branch;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import org.spark_project.guava.collect.Maps;
 
@@ -10,7 +11,7 @@ import com.maplecloudy.app.annotation.Action;
 import com.maplecloudy.app.utils.MAppUtils;
 
 @Action
-public class BranchThree implements MAppTool {
+public class BranchStart implements MAppTool {
   
   /**
    * 
@@ -18,17 +19,16 @@ public class BranchThree implements MAppTool {
   private static final long serialVersionUID = 1L;
   
   public static void main(String[] args) throws Exception {
-    System.exit(MAppRunner.run(new BranchThree(), args));
+    System.exit(MAppRunner.run(new BranchStart(), args));
   }
   
   @Override
   public int run(String[] args) throws Exception {
-    System.out.println("*************分支Three程序启动**********");
-    String parameter = MAppUtils.getParameter("branchThree", "branchThree");
-    System.out.println(
-        "*************branchThree获得的输入为（默认是branchThree）**********" + parameter);
-    HashMap<String,String> newHashMap = Maps.newHashMap();
-    newHashMap.put("selector", "branchThree");
+    int nextInt = new Random().nextInt();
+    HashMap<String,Integer> newHashMap = Maps.newHashMap();
+    System.out.println("生成的随机数是：" + nextInt);
+    System.out.println("随机数对3取余后的值：" + nextInt % 3);
+    newHashMap.put("selector", nextInt % 3);
     MAppUtils.savePipelineOutput(newHashMap);
     return 0;
   }

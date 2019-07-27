@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.Path;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -111,7 +110,6 @@ public class SparkPiWithParameters implements MAppTool {
     });
     System.out.println("Pi is roughly " + 4.0 * count / n);
     jsc.stop();
-//    Thread.sleep(1000 * 60);
     MAppUtils.savePipelineOutput("pi is roughly " + 4.0 * count / n);
     HashMap<String,String> newHashMap = Maps.newHashMap();
     newHashMap.put("selector", "branch2");
