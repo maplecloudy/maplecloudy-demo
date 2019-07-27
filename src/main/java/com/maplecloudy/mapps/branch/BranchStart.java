@@ -24,7 +24,7 @@ public class BranchStart implements MAppTool {
   
   @Override
   public int run(String[] args) throws Exception {
-    int nextInt = new Random().nextInt();
+    int nextInt = Math.abs(new Random().nextInt());
     HashMap<String,Integer> newHashMap = Maps.newHashMap();
     System.out.println("生成的随机数是：" + nextInt);
     System.out.println("随机数对3取余后的值：" + nextInt % 3);
