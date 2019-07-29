@@ -20,7 +20,7 @@ public class BranchOne implements MAppTool {
   public static void main(String[] args) throws Exception {
     System.exit(MAppRunner.run(new BranchOne(), args));
   }
-  
+    
   @Override
   public int run(String[] args) throws Exception {
     System.out.println("*************分支One程序启动**********");

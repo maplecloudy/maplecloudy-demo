@@ -110,10 +110,7 @@ public class SparkPiWithParameters implements MAppTool {
     });
     System.out.println("Pi is roughly " + 4.0 * count / n);
     jsc.stop();
-    MAppUtils.savePipelineOutput("pi is roughly " + 4.0 * count / n);
-    HashMap<String,String> newHashMap = Maps.newHashMap();
-    newHashMap.put("selector", "branch2");
-    MAppUtils.savePipelineOutput(newHashMap);
+    MAppUtils.savePipelineOutput("piResult" + 4.0 * count / n);
     return 0;
   }
 }
