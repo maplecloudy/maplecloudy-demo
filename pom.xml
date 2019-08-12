@@ -209,6 +209,11 @@
 			<artifactId>spark-avro_2.11</artifactId>
 			<version>4.0.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jgit</groupId>
+			<artifactId>org.eclipse.jgit</artifactId>
+			<version>4.11.0.201803080745-r</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
