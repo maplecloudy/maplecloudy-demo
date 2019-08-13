@@ -34,7 +34,7 @@ public class Test {
 //    System.out.println(current);// 当前时间
 //    System.out.println(zero);// 今天零点零分零秒
 //    System.out.println(twelve);// 今天23点59分59秒
-    File dir = new File("/Users/xutengqiang/maplecloudy/workspace/test");
+    File dir = new File("/Users/xutengqiang/maplecloudy/workspace/maplecloudy-platform-demo");
 //    Git.init().setGitDir(dir).setDirectory(dir.getParentFile()).call();
 //    Git.cloneRepository().setURI("https://github.com/learner1992/EasyReport.git")
 //    .setDirectory(new File("/Users/xutengqiang/maplecloudy/workspace/test")).call();
@@ -49,18 +49,19 @@ public class Test {
     CheckoutCommand command = Git.open(dir).checkout().setName("master");
     Git git = Git.open(dir);
     Repository repository = git.getRepository();
-    git.archive().registerFormat("tar.gz", new ZipArchiveFormat());
+    git.archive().registerFormat("tar", new ZipArchiveFormat());
     FileOutputStream out = new FileOutputStream(
         new File("/Users/xutengqiang/maplecloudy/workspace/test1"));
-    git.archive().setTree(repository.resolve("master")).setFormat("tar.gz")
+    git.archive().setTree(repository.resolve("master")).setFormat("tar")
         .setOutputStream(out).call();
     List<Object> list = Lists.newArrayList();
     list.add("a");
     list.add("b");
     list.add("s");
     list.add("a");
+    out.close();
 //    CollectionUtils.filter(list, new Predicate());
-    
+    ArchiveCommand.unregisterFormat("tar");
   }
   
   private static final class ZipArchiveFormat
